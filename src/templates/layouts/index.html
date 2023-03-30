@@ -10,7 +10,13 @@
     <meta name="description" content="A production ready example Django app that's using Docker and Docker Compose.">
 
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
-    <script defer src="{% static 'js/app.js' %}"></script>
+
+    {% if not debug %}
+      <script defer src="{% static 'js/app.js' %}"></script>
+    {% else %}
+      <script type="module" src="http://localhost:{{ vite_port }}/@vite/client"></script>
+      <script type="module" src="http://localhost:{{ vite_port }}/js/app.js"></script>
+    {% endif %}
 
     {# Generated with: https://realfavicongenerator.net/ #}
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">

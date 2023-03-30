@@ -8,6 +8,7 @@ from django.shortcuts import render
 def home(request):
     context = {
         "debug": settings.DEBUG,
+        "vite_port": settings.VITE_PORT,
         "django_ver": get_version(),
         "python_ver": os.environ["PYTHON_VERSION"],
     }

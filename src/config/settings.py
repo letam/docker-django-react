@@ -29,6 +29,8 @@ TESTING = "test" in sys.argv
 allowed_hosts = os.getenv("ALLOWED_HOSTS", ".localhost,127.0.0.1,[::1]")
 ALLOWED_HOSTS = list(map(str.strip, allowed_hosts.split(",")))
 
+VITE_PORT = int(os.getenv("VITE_PORT", 5173))
+
 # Application definitions
 INSTALLED_APPS = [
     "pages.apps.PagesConfig",

@@ -101,6 +101,9 @@ services:
   js:
     <<: *default-assets
     command: "../run yarn:build:js"
+    ports:
+      # Note that this port will not pose security issue in prod since it is for dev server only
+      - "${VITE_PORT:-5173}:${VITE_PORT:-5173}" 
 
   css:
     <<: *default-assets
