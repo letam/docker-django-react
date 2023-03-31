@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
@@ -8,7 +8,10 @@ export default defineConfig({
     port: process.env.VITE_PORT,
   },
 
-  plugins: [react()],
+  plugins: [
+    react(),
+    splitVendorChunkPlugin(),
+  ],
 
   build: {
     // generate manifest.json in outDir
@@ -21,14 +24,21 @@ export default defineConfig({
       input: 'src/main.tsx',
 
       output: {
-        // exclude hash from filenames since Django and Whitenoise handle cache-busting
-        // exclude 'assets/' prefix since we don't need it here either
+        // Exclude 'assets/' prefix from file names since it's redundant.
+
+        // Exclude hash from names for "entry" and "asset" files since Django
+        // itself will add a hash to the file names for use in HTML templates.
 
         // entryFileNames: "assets/[name]-[hash].js", // default value in Vite
         entryFileNames: "[name].js",
 
         // assetFileNames: "assets/[name]-[hash].[ext]", // default value in Vite
         assetFileNames: "[name].[ext]",
+
+        // Note that we include the hash for chunk files since they are 
+        // imported by other JS files and not by Django HTML templates.
+        // chunkFileNames: 'assets/[name]-[hash].js', // default value in Vite
+        chunkFileNames: '[name]-[hash].js',
       },
     },
   },

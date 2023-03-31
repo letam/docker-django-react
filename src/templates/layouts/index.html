@@ -13,7 +13,7 @@
 
     {% if not debug %}
       <link rel="stylesheet" href="{% static 'js/main.css' %}">
-      <script defer src="{% static 'js/main.js' %}"></script>
+      <script type="module" src="{% static 'js/main.js' %}" defer></script>
     {% else %}
       <!-- React refresh -->
       <script type="module">
