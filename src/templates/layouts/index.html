@@ -15,7 +15,7 @@
       <link rel="stylesheet" href="{% static 'js/main.css' %}">
       <script type="module" src="{% static 'js/main.js' %}" defer></script>
     {% else %}
-      <!-- React refresh -->
+      <!-- React HMR (hot module replacement) -->
       <script type="module">
         import RefreshRuntime from 'http://localhost:{{ vite_port }}/@react-refresh'
         RefreshRuntime.injectIntoGlobalHook(window)
