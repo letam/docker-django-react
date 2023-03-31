@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Sync static asset files during development
+
+rsync -rav assets/static/* public
