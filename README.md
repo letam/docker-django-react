@@ -1,23 +1,23 @@
-# An example Django + Docker app
+# A starter Django + React + Vite + Docker app project
 
-![CI](https://github.com/nickjj/docker-django-example/workflows/CI/badge.svg?branch=main)
+![CI](https://github.com/letam/docker-django-react-starter/workflows/CI/badge.svg?branch=main)
 
 You could use this example app as a base for your new project or as a guide to
-Dockerize your existing Django app.
+Dockerize an app built on Django + React + Vite.
 
 The example app is minimal but it wires up a number of things you might use in
-a real world Django app, but at the same time it's not loaded up with a million
+a real world Django+React app, but at the same time it's not loaded up with a bajillion
 personal opinions.
 
 For the Docker bits, everything included is an accumulation of [Docker best
 practices](https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose)
-based on building and deploying dozens of assorted Dockerized web apps since
+based on Nick Janetakis's experience building and deploying dozens of assorted Dockerized web apps since
 late 2014.
 
 **This app is using Django 5.1.3 and Python 3.13.0**. The screenshot doesn't get
 updated every time I bump the versions:
 
-[![Screenshot](.github/docs/screenshot.jpg)](https://github.com/nickjj/docker-django-example/blob/main/.github/docs/screenshot.jpg?raw=true)
+[![Screenshot](.github/docs/screenshot.jpg)](https://github.com/letam/docker-django-react-starter/blob/main/.github/docs/screenshot.jpg?raw=true)
 
 ## Table of contents
 
@@ -33,12 +33,12 @@ updated every time I bump the versions:
 - [Additional resources](#additional-resources)
   - [Learn more about Docker and Django](#learn-more-about-docker-and-django)
   - [Deploy to production](#deploy-to-production)
-- [About the author](#about-the-author)
+- [About the initial author](#about-the-initial-author)
+- [About me](#about-me)
 
 ## Tech stack
 
-If you don't like some of these choices that's no problem, you can swap them
-out for something else on your own.
+The most epic boring stack. Built for maximum web developer velocity
 
 ### Back-end
 
@@ -48,32 +48,11 @@ out for something else on your own.
 
 ### Front-end
 
-- [esbuild](https://esbuild.github.io/)
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Heroicons](https://heroicons.com/)
-
-#### But what about JavaScript?!
-
-Picking a JS library is a very app specific decision because it depends on
-which library you like and it also depends on if your app is going to be
-mostly Django templates with sprinkles of JS or an API back-end.
-
-This isn't an exhaustive list but here's a few reasonable choices depending on
-how you're building your app:
-
-- <https://hotwired.dev/>
-- <https://htmx.org/>
-- <https://github.com/alpinejs/alpine>
-- <https://vuejs.org/>
-- <https://reactjs.org/>
-- <https://jquery.com/>
-
-On the bright side with esbuild being set up you can use any (or none) of these
-solutions very easily. You could follow a specific library's installation
-guides to get up and running in no time.
-
-Personally I'm going to be using Hotwire Turbo + Stimulus in most newer
-projects.
 
 ## Notable opinions and extensions
 
@@ -292,7 +271,7 @@ bin/rename-project myapp MyApp
 ```
 
 The [bin/rename-project
-script](https://github.com/nickjj/docker-django-example/blob/main/bin/rename-project)
+script](https://github.com/letam/docker-django-react-starter/blob/main/bin/rename-project)
 is going to:
 
 - Remove any Docker resources for your current project
@@ -305,7 +284,7 @@ project generator tools or 3rd party dependencies.*
 
 If you're not comfy running the script or it doesn't work for whatever reasons
 you can [check it
-out](https://github.com/nickjj/docker-django-example/blob/main/bin/rename-project)
+out](https://github.com/letam/docker-django-react-starter/blob/main/bin/rename-project)
 and perform the actions manually. It's mostly running a find / replace across
 files and then renaming a few directories and files.
 
@@ -376,14 +355,14 @@ yarn:install`. That'll make sure any lock files get copied from Docker's image
 version control like usual.
 
 You can check out the
-[run](https://github.com/nickjj/docker-django-example/blob/main/run) file to see
+[run](https://github.com/letam/docker-django-react-starter/blob/main/run) file to see
 what these commands do in more detail.
 
 As for the requirements' lock file, this ensures that the same exact versions
 of every package you have (including dependencies of dependencies) get used the
 next time you build the project. This file is the output of running `pip3
 freeze`. You can check how it works by looking at
-[bin/pip3-install](https://github.com/nickjj/docker-django-example/blob/main/bin/pip3-install).
+[bin/pip3-install](https://github.com/letam/docker-django-react-starter/blob/main/bin/pip3-install).
 
 You should never modify the lock files by hand. Add your top level Python
 dependencies to `requirements.txt` and your top level JavaScript dependencies
@@ -393,7 +372,7 @@ to `assets/package.json`, then run the `./run` command(s) mentioned earlier.
 
 You'll want to run `docker compose build` since it will use any existing lock
 files if they exist. You can also check out the complete CI test pipeline in
-the [run](https://github.com/nickjj/docker-django-example/blob/main/run) file
+the [run](https://github.com/letam/docker-django-react-starter/blob/main/run) file
 under the `ci:test` function.
 
 #### In production:
@@ -412,7 +391,7 @@ Any help is much appreciated!
 
 Now that you have your app ready to go, it's time to build something cool! If
 you want to learn more about Docker, Django and deploying a Django app here's a
-couple of free and paid resources. There's Google too!
+couple of free and paid resources. There's Google and ChatGPT too!
 
 ### Learn more about Docker and Django
 
@@ -424,20 +403,16 @@ couple of free and paid resources. There's Google too!
 #### Courses / books
 
 - [https://diveintodocker.com](https://diveintodocker.com?ref=docker-django-example)
-  is a course I created which goes over the Docker and Docker Compose
-  fundamentals
+  is a course which goes over the Docker and Docker Compose fundamentals
 - William Vincent has a bunch of [beginner and advanced Django
   books](https://gumroad.com/a/139727987). He also co-hosts the [Django
   Chat](https://djangochat.com/) podcast
 
 ### Deploy to production
 
-I'm creating an in-depth course related to deploying Dockerized web apps. If
-you want to get notified when it launches with a discount and potentially get
-free videos while the course is being developed then [sign up here to get
-notified](https://nickjanetakis.com/courses/deploy-to-production).
+- Coming soon
 
-## About the author
+## About the initial author
 
 - Nick Janetakis | <https://nickjanetakis.com> | [@nickjanetakis](https://twitter.com/nickjanetakis)
 
@@ -449,3 +424,12 @@ There's hundreds of [blog posts](https://nickjanetakis.com/) and a couple
 of [video courses](https://nickjanetakis.com/courses) on web development and
 deployment topics. I also have a [podcast](https://runninginproduction.com)
 where I talk with folks about running web apps in production.
+
+I'm creating an in-depth course related to deploying Dockerized web apps. If
+you want to get notified when it launches with a discount and potentially get
+free videos while the course is being developed then [sign up here to get
+notified](https://nickjanetakis.com/courses/deploy-to-production).
+
+## About me
+
+I'm a work in progress.
