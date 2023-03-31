@@ -67,3 +67,9 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.App > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -4,15 +4,26 @@
 {% block title %}Docker + Django + Tailwind + React + TS + Vite{% endblock %}
 
 {% block body %}
-  <div class="flex justify-center pt-24 pb-12 px-2 sm:px-0">
-    <img src="{% static 'images/django.png' %}"
-         width="480" height="167" alt="Django logo" />
+  <div class="max-w-screen-lg mx-auto mb-auto mt-8" style="margin-top: 24px;">
+    <div class="flex items-center justify-center px-2 sm:px-0">
+      <img class="text-center text-lg mt-6" src="https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png" style="
+      margin-right: 20px;
+  "><img class="text-center text-lg mt-6" src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg" style="
+      margin-right: 30px;
+      height: 70px;
+  "><img src="{% static 'images/django.png' %}" width="120" height="167" alt="Django logo">
+    </div>
+        <div class="flex items-center justify-center px-2 sm:px-0">
+      <img class="text-center text-lg mt-6" src="https://www.postgresql.org/media/img/about/press/elephant.png" style="height: 66px;margin-right: 30px;margin-left: 34px;"><img class="text-center text-lg mt-6" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Logo-redis.svg" style="
+      height: 60px;
+      margin-right: 30px;
+      margin-left: 30px;
+  ">
+    </div><div class="flex items-center justify-center px-2 sm:px-0" style="margin-top: 21px;">
+      <img class="text-center text-lg mt-6" src="{% static 'images/tailwindcss.png' %}" style="height: 60px;margin-left: 34px;"><img class="text-center text-lg mt-6" src="{% static 'images/radix-ui.png' %}" style="
+      height: 60px;
+      margin-right: 30px;
+  ">
+    </div>
   </div>
-
-  <p class="text-center text-lg mt-6">
-   🐳 Learn the Docker fundamentals at:
-    <strong>
-      <a class="border-b border-gray-900 mb-1" href="https://diveintodocker.com?ref=docker-django-example">https://diveintodocker.com</a>
-    </strong>
-  </p>
 {% endblock %}
