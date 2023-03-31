@@ -135,6 +135,11 @@ function yarn:build:js {
   fi
 }
 
+function yarn:hot {
+  # Start JS assets dev server, this is meant to be run from within the assets container
+  yarn run vite
+}
+
 function yarn:build:css {
   # Build CSS assets, this is meant to be run from within the assets container
   local args=()

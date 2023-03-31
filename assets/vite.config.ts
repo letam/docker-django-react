@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -6,6 +7,9 @@ export default defineConfig({
     host: true,
     port: process.env.VITE_PORT,
   },
+
+  plugins: [react()],
+
   build: {
     // generate manifest.json in outDir
     manifest: true,
