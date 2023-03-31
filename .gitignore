@@ -10,6 +10,7 @@ public_collected/*
 
 .env*
 !.env.example
+!.env.example.*
 docker-compose.override.yml
 
 
