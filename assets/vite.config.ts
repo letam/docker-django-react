@@ -18,13 +18,17 @@ export default defineConfig({
       // https://rollupjs.org/configuration-options/
 
       // overwrite default .html entry
-      input: 'js/app.js',
+      input: 'src/main.tsx',
 
       output: {
-        // entryFileNames: "assets/[name]-[hash].js", // default value in Vite
         // exclude hash from filenames since Django and Whitenoise handle cache-busting
         // exclude 'assets/' prefix since we don't need it here either
+
+        // entryFileNames: "assets/[name]-[hash].js", // default value in Vite
         entryFileNames: "[name].js",
+
+        // assetFileNames: "assets/[name]-[hash].[ext]", // default value in Vite
+        assetFileNames: "[name].[ext]",
       },
     },
   },

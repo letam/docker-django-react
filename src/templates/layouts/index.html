@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
 
     {% if not debug %}
+      <link rel="stylesheet" href="{% static 'js/main.css' %}">
       <script defer src="{% static 'js/main.js' %}"></script>
     {% else %}
       <!-- React refresh -->
