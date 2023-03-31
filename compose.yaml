@@ -109,6 +109,10 @@ services:
     <<: *default-assets
     command: "../run yarn:build:css"
 
+  static:
+    <<: *default-assets
+    command: "../run assets:copy-static"
+
 volumes:
   postgres: {}
   redis: {}

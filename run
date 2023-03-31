@@ -129,7 +129,7 @@ function yarn:build:js {
   if [ "${NODE_ENV:-}" == "production" ]; then
     mkdir -p ../public/js
     yarn run vite build
-    # TODO: move assets to outer public directory
+    mv dist/* ../public/js && rmdir dist
   else
     yarn run vite
   fi
@@ -147,6 +147,11 @@ function yarn:build:css {
 
   mkdir -p ../public/css
   DEBUG=0 tailwindcss --postcss -i css/app.css -o ../public/css/app.css "${args[@]}"
+}
+
+function assets:copy-static {
+  # Copy static files over to /public, to be run from within the assets container/dir
+  cp -R static/* ../public
 }
 
 function clean {
