@@ -23,6 +23,8 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG = bool(strtobool(os.getenv("DEBUG", "false")))
 
+DEBUG_PROPAGATE_EXCEPTIONS = bool(strtobool(os.getenv("DEBUG_PROPAGATE_EXCEPTIONS", "false")))
+
 TESTING = "test" in sys.argv
 
 # https://docs.djangoproject.com/en/5.1/ref/settings/#std:setting-ALLOWED_HOSTS
