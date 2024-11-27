@@ -49,7 +49,7 @@ The most epic boring stack. Built for maximum web developer velocity
 ### Front-end
 
 - [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
+- [Vite](https://vite.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Heroicons](https://heroicons.com/)
