@@ -1,6 +1,15 @@
 {
   "name": "helloweb",
   "private": true,
+  "scripts": {
+    "dev": "vite",
+    "dev:css": "DEBUG=0 tailwindcss --postcss -i css/app.css -o ../public/css/app.css --watch",
+    "build": "vite build",
+    "build:css": "DEBUG=0 tailwindcss --postcss -i css/app.css -o ../public/css/app.css --minify",
+    "build:public": "mkdir -p ../public/js && npm run build && mv dist/* ../public/js && rmdir dist",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
